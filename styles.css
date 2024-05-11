@@ -1,0 +1,38 @@
+.container{
+    width: 100%; /* ширина*/
+    height: 100%; /* высота */
+    display: flex; /* будет растягиваться*/
+    flex-direction: column; /* элементы распологаються в колонку */
+    align-items: center; /* размешение по центру */
+    justify-content: center; /* размешение по центру */
+
+
+}
+form{
+    display: flex; /* будет растягиваться*/
+    flex-direction: column; /* элементы распологаються в колонку */
+    align-items: center; /* размешение по центру */
+    justify-content: center; /* размешение по центру */
+    gap: 10px; /*растояние между элементами*/
+}
+
+.form-input{
+    display: flex; /* будет растягиваться*/
+    flex-direction: column; /* элементы распологаються в колонку */
+    align-items: center; /* размешение по центру */
+    justify-content: center; /* размешение по центру */
+}
+
+input[type=submit]{
+    width: 100%; /* ширина*/
+    height: 30px; /* высота */
+    background-color: green; /* цвет элемента*/
+}
+input[type=submit]:hover {   /*псевдо элемент hover-выполняеться при зависании мышки */
+    cursor: pointer; /* изминение вида курсора */ 
+    background-color: #AAFFCC;/* цвет элемента*/
+}
+input[type=submit]:active {   /*псевдо элемент hover-выполняеться при зависании мышки */
+    
+    background-color: #000000;/* цвет элемента*/
+}
