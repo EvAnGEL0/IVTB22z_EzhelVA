@@ -2,18 +2,21 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    
+
     <link href="styles.css" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
+
 <div class="container">
    <h1>Registration Form</h1>
-    <form action="">
-        <div class="form-input">
+    <form class="form-input">
+        <div class="form-input" id="name-input-container">
             <Label for="name-input">Entet you name:</Label>
-            <input type="text" id="name-input" placeholder="Name"/>
+            <input type="text" id="user-name-input" placeholder="Name"/>
         </div>
-        <div class="form-input">
+        <div class="form-input" id="passwd-input-container">
             <Label for="password-input">Entet you name:</Label>
             <input type="password" id="password-input" placeholder="Password"/> 
         </div>
@@ -25,8 +28,137 @@
                 <option value="User">User</option>
             </select>
         </div>
-        <input type="submit" value="Submit form"/>
+        <!-- <input type="submit" value="Submit form"/>-->
     </form>
+    
+    <button id="submit-input" disabled> Submit button</button>
+    <!--<button id="submit-input" onclick="handler()"> Submit button</button>-->
+    <!-- практика
+    <div id="button-container">
+        <button id="submit-input" disabled> Submit button 2</button>
+        <button id="enable-submit" onclick="enableHandler()"> enable</button>
+        <button id="add-listener" onclick="allListner()">Ass listener</button>
+        <button id="disable-submit" onclick="desebleHandler()" > disable</button>
+    </div>
+-->
 </div>
+<!--практика-->
+    <script type="text/javascript">
+        const button = document.querySelector("#submit-input");
+        let errorBool = false;
+        const nameInput = document.querySelector("#user-name-input");
+        let inputVelue; //добовляем переменную
+        
+        nameInput.addEventListener("input", ()=> {
+            inputVelue = nameInput.value;
+           // console.log(inputVelue); //выводим inputVelue
+        }); //присваивам значение nameInput в переменную inputVelue 
+
+        nameInput.addEventListener ("blur", ()=> { //"blur" - при переходе на дркгой элемент
+            //console.log("blur happened");    
+            if  (!inputVelue || inputVelue.length < 3 ){
+                nameInput.className = "input-error"; //меняем стиль элемента
+                const p = document.createElement("p");
+                p.appendChild(document.createTextNode("Name field is required")); // добовляем текст в тег
+                p.className = "error-message"; //присваеваем тегу а клвсс
+                document.querySelector("#name-input-container").append( p);
+                errorBool = false;
+            }
+            else {
+                nameInput.className ="input-good"
+                errorBool = true;
+            }
+            });
+
+        nameInput.addEventListener ("focus", ()=> { //"focus" - при переходе на этот элемент 
+            document.querySelector("#name-input-container > p").remove();
+        });
+
+        //домашнее задание
+        const passInput = document.querySelector("#password-input"); //привязываем элемент м id к passInput
+        let inputVeluePass; //добовляем переменную для хранения значения
+
+        passInput.addEventListener("input", ()=> {
+            inputVeluePass = passInput.value;
+            // console.log(inputVeluePass); //выводим inputVeluePass
+        }); //присваивам значение passInput в переменную inputVeluePass
+        
+        passInput.addEventListener ("blur", ()=> { //"blur" - при переходе на дркгой элемент
+            //console.log("blur happened");    
+            if  (!inputVeluePass || inputVeluePass.length < 8 ){
+                passInput.className = "input-error"; //меняем стиль элемента
+                const p = document.createElement("p");
+                p.appendChild(document.createTextNode("password must be 8 characters long")); // добовляем текст в тег
+                p.className = "error-message"; //присваеваем тегу а клвсс
+                document.querySelector("#passwd-input-container").append( p);
+            }
+            else {
+                passInput.className ="input-good";
+                if (errorBool){
+                    button.disabled = false;
+                }
+            }
+        });
+
+        passInput.addEventListener ("focus", ()=> { //"focus" - при переходе на этот элемент 
+            document.querySelector("#passwd-input-container > p").remove();
+        });
+
+
+
+
+
+    </script>
+
+
+<!--- лекция
+<script type="text/javascript">
+    //console.log = true;
+    //console.log = ("toso");
+    
+ //   const button = document.querySelector("#submit-input");
+ //   button.className = "submit-input";
+
+ // варифант 1 добовления обработчиков (корхоз)
+ //при использовании 2 -го ваирианта, оброботчик события вешаеться на родтельский элемент body
+    const button = document.querySelector("#submit-input"); // не очень хорошо, колхоз (но бывает полезно)
+    // event - сбытие (обычный js объект), у него есть свойство и ментоды
+    const itWorsdLister = (event)=> {
+        event.stopPropagation(); // остонавливает движение объекта по дом дереву 
+        console.log("it works");
+    };
+
+    const divClickHandler = (event)=> {
+
+        console.log("div click", event.target);
+//event.target -свойство, отображает элемент. через него можно манипулировать элементом
+    }
+    //вешаем обработчик на контейнер с элементами, это позволит улутшить код и уменьшить затраты на расурсы
+    document.querySelector("#button-container").addEventListener("click",divClickHandler);
+
+    function enableHandler () {
+     //   console.log = (">>>>>>>", button.disabled); //работает но в консоль сообщение не выводит
+        button.disabled = false;
+    //    console.log = (">>>>>>>", button.disabled);
+
+    }
+    function desebleHandler () {
+        button.disabled = true;
+        button.removeEventListener("click", itWorsdLister);
+    }
+    function allListner (){
+        button.addEventListener("click", itWorsdLister);
+    }
+    
+//    setTimeout(()=>{
+//        button.className = "submit-input";
+//    }, 3000); // таймаут принимает 2 элемента 1 - функция которая будет выполнена  2 -через ккое время будет выполнено
+//
+//    function handler () {//обработка событий через функцию
+//        console.log("Hi,there!");
+//        button.className = "submit-input";
+//    }
+//
+</script> -->
 </body>
 </html>
