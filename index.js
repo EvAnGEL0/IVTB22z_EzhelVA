@@ -15,7 +15,8 @@ const port = 3000
 //продлючаем парсер для формы
 app.use(express.json())
 app.use(express.urlencoded())
-
+//подключаем сss и js
+app.use(express.static(__dirname + '/static'));
 
 app.get('/registration', (req, res) => {
     res.sendFile("index.html", {root: path.join(__dirname )})

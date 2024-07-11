@@ -1,44 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    
-
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Title</title>
-</head>
-<body>
-
-<div class="container">
-   <h1>Registration Form</h1>
-    <form action="/reg-data" method="post">
-        <div class="form-input" id="name-input-container">
-            <Label for="name-input">Entet you name:</Label>
-            <input type="text" id="user-name-input" placeholder="Name" name="username" />
-        </div>
-        <div class="form-input" id="passwd-input-container">
-            <Label for="password-input">Entet you name:</Label>
-            <input type="password" id="password-input" placeholder="Password" name="password"/> 
-        </div>
-        <div class="form-input">
-            <Label for="user-type-input">Select user type:</Label>
-            <select id="user-type-input">
-                <option value="Admin">Admin</option>
-                <option value="Moderator">Moderator</option>
-                <option value="User">User</option>
-            </select>
-        </div>
-        <input type="submit"/>
-    </form>
-    
-
-</div>
-
-<script src="js/script.js"></script> 
-<!--практика
-
-    <script type="text/javascript">
-        const button = document.querySelector("#submit-input");
+const button = document.querySelector("#submit-input");
         
         const nameInput = document.querySelector("#user-name-input");
         let inputVelue; //добовляем переменную
@@ -98,8 +58,3 @@
 
 
 
-
-
-    </script>-->
-</body>
-</html>
