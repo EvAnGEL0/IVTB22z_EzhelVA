@@ -1,13 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { Asteroids } from './pages/Asteroids';
+import { Desroyment } from './pages/Desroyment';
+import { Asteroid } from './pages/Asteroid';
+
+
+//для router желательно выексти в отделный файл
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div>Hello world!</div>,
+  },
+  {
+    path: "/asteroids",
+    element: <Asteroids />,
+  },
+  {
+    path: "/destroymant",
+    element: <Desroyment />,
+  },
+  {
+    path: "/asteroid/:id",
+    element: <Asteroid />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <RouterProvider router={router} />
   </React.StrictMode>
 );
 
