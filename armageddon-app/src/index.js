@@ -12,11 +12,11 @@ import { Asteroid } from './pages/Asteroid';
 //для router желательно выексти в отделный файл
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/test",
     element: <div>Hello world!</div>,
   },
   {
-    path: "/asteroids",
+    path: "/",
     element: <Asteroids />,
   },
   {
