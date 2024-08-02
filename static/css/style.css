@@ -1,0 +1,63 @@
+.container{
+    width: 100%; /* ширина*/
+    height: 100%; /* высота */
+    display: flex; /* будет растягиваться*/
+    flex-direction: column; /* элементы распологаються в колонку */
+    align-items: center; /* размешение по центру */
+    justify-content: center; /* размешение по центру */
+
+
+}
+form{
+    display: flex; /* будет растягиваться*/
+    flex-direction: column; /* элементы распологаються в колонку */
+    align-items: center; /* размешение по центру */
+    justify-content: center; /* размешение по центру */
+    gap: 10px; /*растояние между элементами*/
+}
+
+.form-input{
+    display: flex; /* будет растягиваться*/
+    flex-direction: column; /* элементы распологаються в колонку */
+    align-items: center; /* размешение по центру */
+    justify-content: center; /* размешение по центру */
+}
+/* 
+#user-name-input, #user-type-input, #passworrd-input, #submit-input {
+    width: 350px;
+    height: 25px;
+    padding: 20px;
+}
+
+label {
+    margin: 40px;
+}
+ */
+input[type=submit]{
+    width: 100%; /* ширина*/
+    height: 30px; /* высота */
+    background-color: green; /* цвет элемента*/
+}
+input[type=submit]:hover {   /*псевдо элемент hover-выполняеться при зависании мышки */
+    cursor: pointer; /* изминение вида курсора */ 
+    background-color: #AAFFCC;/* цвет элемента*/
+}
+input[type=submit]:active {   /*псевдо элемент hover-выполняеться при зависании мышки */
+    
+    background-color: #000000;/* цвет элемента*/
+}
+
+.submit-input{
+    background-color: rgb(29, 185, 68); /* цвет элемента*/
+}
+
+.input-error{
+    border-color: rgb(230, 47, 1); /* цвет элемента*/
+}
+.error-message {
+    color: red;
+}
+
+.input-good {
+    border-color: rgb(0, 255, 55);
+}
