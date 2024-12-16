@@ -1,0 +1,19 @@
+Первым делом создаем проект
+
+npx create-react-app armageddon-app    
+npm install web-vitals@latest 
+
+компоненты - основа реакта
+
+устанавливаем react Router
+
+mpn install react-router-dom
+
+в файле index.js меняем
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

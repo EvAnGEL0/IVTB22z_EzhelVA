@@ -1,0 +1,85 @@
+.contaener{
+    display: flex;
+
+}
+
+
+.card{
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: inline-block;
+    
+}
+
+.regvlarCard{
+    display: flex;  /* flexbox - перевод дочерних элементов в колонки (в одну строку)  */
+    justify-content: space-around; /* выравниванте по горизонту: 
+                                        center - центру; 
+                                        flex-end - конец строки; 
+                                        space-between - крайние элементы прижимаються по краям, центральный по центру 
+                                        space-around - выравнивание по центру
+                                        */
+    align-items: center;                  /* выравнивонье по верникали:
+                                        stretch -  оп умолчанию
+                                        flex-start - по верху 
+                                        flex-end - по низу 
+                                        center - центру;
+                                        baseline - по базовой горизонтальной оси
+                                    */
+    flex-direction: row;            /* расположение блоков по:display:
+                                            row - по порядку
+                                            row-reverse - задом на перед
+                                            column - по вертекали по порядку
+                                            column-reverse - по вертекали  задом на перед
+                                    */
+    flex-wrap: nowrap;              /* многострочность
+                                        nowrap -не переносить блоки на другие строки
+                                        wrap - переносить блоки на другие строки
+                                        wrap-reverse - переносить блоки на другие строки ( задом на перед)
+                                    */
+    position: relative;
+    width: 920px;
+    height: 200px;
+    left: 0px;
+    top: 0px;
+    
+    background: linear-gradient(90deg, #CFF37D 20%, #00f821 100%);
+}
+
+
+
+.cardRed{
+    display: flex;  /* flexbox - перевод дочерних элементов в колонки (в одну строку)  */
+    justify-content: space-around; /* выравниванте по горизонту: 
+                                        center - центру; 
+                                        flex-end - конец строки; 
+                                        space-between - крайние элементы прижимаються по краям, центральный по центру 
+                                        space-around - выравнивание по центру
+                                        */
+    align-items: center;                  /* выравнивонье по верникали:
+                                        stretch -  оп умолчанию
+                                        flex-start - по верху 
+                                        flex-end - по низу 
+                                        center - центру;
+                                        baseline - по базовой горизонтальной оси
+                                    */
+    flex-direction: row;            /* расположение блоков по:display:
+                                            row - по порядку
+                                            row-reverse - задом на перед
+                                            column - по вертекали по порядку
+                                            column-reverse - по вертекали  задом на перед
+                                    */
+    flex-wrap: nowrap;              /* многострочность
+                                        nowrap -не переносить блоки на другие строки
+                                        wrap - переносить блоки на другие строки
+                                        wrap-reverse - переносить блоки на другие строки ( задом на перед)
+                                    */
+    position: relative;
+    width: 920px;
+    height: 200px;
+    left: 0px;
+    top: 0px;
+
+    background: linear-gradient(90deg, #f37d7dd3 20%, #ff0202 100%);
+}
