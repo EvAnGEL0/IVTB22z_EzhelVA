@@ -8,15 +8,35 @@ import { useEffect, useState } from "react";
 export const Asteroids =()=>{
 
    
-    const [asteroids] = useState(generateAsteroids())
+    const [asteroids, setAsteroids] = useState(generateAsteroids())
     const [onlyDangerous, setOnlyDangerous] = useState(false)
     const [distanseMode, setDistanseMode] = useState(false)
     
     //хук эффект
-    useEffect(()=>{
-        const result = fetch("https://api.nasa.gov/neo/rest/v1/feed?api_key=DEMO_KEY").then((res)=>{
-            return res.json()
-        }).then((asteroids)=>{console.log(asteroids)})
+    useEffect( ()=>{
+        try{
+                const result =  fetch("https://api.nasa.gov/neo/rest/v1/feed?api_key=tf9ULHclGmZjnwSCEBbTUJ5XV7G1GUAPzGG6PPQW").then((res)=>{
+                   return res.json()
+               }).then((response)=>{
+                  let rawAsteroids = []
+                   for (const data in response.near_earth_objects) {     
+                       rawAsteroids = rawAsteroids.concat(response.near_earth_objects[data])
+                  }
+                  const asteroids = rawAsteroids.map(item =>{
+                       const size = Math.trunc((item.estimated_diameter.meters.estimated_diameter_max + item.estimated_diameter.meters.estimated_diameter_min)/2)
+                       const close = item.close_approach_data[0]
+                     return {
+                       name: item.name, date: close.close_approach_date,
+                       size , distance:{kilometers: close.miss_distance.kilometers, lunar:close.miss_distance.lunar}, isDangerous: item.is_potentially_hazardous_asteroid,
+                       id: item.id
+                     }
+                  }) 
+                  setAsteroids(asteroids)
+               })
+              
+            }catch(err){
+                console.log(err)
+            }
         
     },[])
 
@@ -35,9 +55,9 @@ export const Asteroids =()=>{
 
       
 
-         { onlyDangerous ?
-         asteroids.filter((item)=>item.isDangerous).map((item)=><AsteroidCard {...item}/>) : 
-         asteroids.map((item)=><AsteroidCard {...item}/>)
+         { onlyDangerous ? asteroids.filter((item)=>item.isDangerous).map((item)=>
+         <AsteroidCard key={item.id}  {...item} distanseMode={distanseMode} />) : 
+         asteroids.map((item)=><AsteroidCard  key={item.id}  {...item} distanseMode={distanseMode}/>)
          }      
         </div>
 }
@@ -66,7 +86,7 @@ const generateAsteroids =()=>{
         const size = (Math.random()*100+10).toFixed(0);
         const distance = (Math.random()*9000000000).toFixed(0);
         const isDangerous = Math.random() < 0.5 ? false : true;
-        result.push ({name, date, size, distance, isDangerous});    
+        result.push ({name, date, size, distance, isDangerous, id: name});    
     }
     return result;
 }
