@@ -7,7 +7,7 @@ import { AsteroidCardImage } from "./AsteroidCardImage/AsteroidCardImage"
 export const AsteroidCard =(props)=>{
     const {name, date, distance, size, isDangerous, distanseMode} = props;
 
-    return <div className={styles.card}>
+    return <div className={styles.container}>
     <div className={isDangerous ? styles.cardRed : styles.regvlarCard}>
         <AsteroidCardImage />
        <AsteroidCardContent name={name} date={date} distance={distance} size={size} distanseMode={distanseMode}  /> 
