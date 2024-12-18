@@ -2,7 +2,7 @@
 import { Header } from "../components/header/Header"
 import { AsteroidCard } from "../components/AsteroidCard/AsteroidCard";
 
-import styles from "../static/css/style.css"
+import styles from "./Asteroids.module.css"
 import { useEffect, useState } from "react";
 
 export const Asteroids =()=>{
@@ -25,9 +25,11 @@ export const Asteroids =()=>{
                   const asteroids = rawAsteroids.map(item =>{
                        const size = Math.trunc((item.estimated_diameter.meters.estimated_diameter_max + item.estimated_diameter.meters.estimated_diameter_min)/2)
                        const close = item.close_approach_data[0]
+                       const kilometers = Math.trunc(close.miss_distance.kilometers)
+                       const lunar = Math.trunc(close.miss_distance.lunar)
                      return {
                        name: item.name, date: close.close_approach_date,
-                       size , distance:{kilometers: close.miss_distance.kilometers, lunar:close.miss_distance.lunar}, isDangerous: item.is_potentially_hazardous_asteroid,
+                       size , distance:{kilometers: kilometers, lunar:lunar}, isDangerous: item.is_potentially_hazardous_asteroid,
                        id: item.id
                      }
                   }) 
@@ -45,14 +47,15 @@ export const Asteroids =()=>{
 
 
 
-    return <div className={styles.container}>
+    return <div >
         <Header />
+        <div className={styles.container}>
         <div onClick={() =>  setOnlyDangerous(!onlyDangerous)}>
             <input type="checkbox" value={onlyDangerous} onChange={()=>setOnlyDangerous(!onlyDangerous)}></input> Показать только опасные
         </div>
         <div>Растояние <button onClick={()=>setDistanseMode(true)}>в километрах</button>,
          <button onClick={()=>setDistanseMode(false)}>в дистанциях от луны</button></div>
-
+         </div>
       
 
          { onlyDangerous ? asteroids.filter((item)=>item.isDangerous).map((item)=>
