@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Asteroids } from './pages/Asteroids';
 import { Asteroid } from './pages/Asteroid';
 import { Desroyment } from './pages/Desroyment';
+import {AsteroidsContextProvider} from "./components/asteroids-context/AsteroidsContext";
 
 
 //для router желательно выексти в отделный файл
@@ -36,11 +37,12 @@ const router = createBrowserRouter([
 
 ]);
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <RouterProvider router={router} />
+      <AsteroidsContextProvider>
+          <RouterProvider router={router} />
+      </AsteroidsContextProvider>
   </React.StrictMode>
 );
 

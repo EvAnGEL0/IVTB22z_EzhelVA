@@ -15,6 +15,7 @@
         "node_modules",
         "**/*.test.js",
         "**/*.spec.js",
-        "**/*.js"
+        "**/*.js",
+        "**/*.mjs"
       ]
 }
