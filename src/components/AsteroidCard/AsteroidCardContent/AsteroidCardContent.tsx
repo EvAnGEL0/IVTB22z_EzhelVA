@@ -1,6 +1,15 @@
+type AsteroidCardContentProps = {
+    name: string;
+    date: string;
+    distance: {
+      kilometers: number;
+      lunar: number;
+    };
+    size: number;
+    distanseMode:boolean;
+  };
 
-
-export const AsteroidCardContent = (props) => {
+export const AsteroidCardContent = (props:AsteroidCardContentProps) => {
     const {name, date, distance, size, distanseMode} = props;
 
     return ( <div>

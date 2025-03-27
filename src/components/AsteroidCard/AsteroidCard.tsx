@@ -4,8 +4,20 @@ import { AsteroidCardContent } from "./AsteroidCardContent/AsteroidCardContent"
 import { AsteroidCardAction } from "./AsteroidCardAction/AsteroidCardAction"
 import { AsteroidCardImage } from "./AsteroidCardImage/AsteroidCardImage"
 
-export const AsteroidCard =(props)=>{
-    const {name, date, distance, size, isDangerous, distanseMode} = props;
+type AsteroidCardProps = {
+    name: string;
+    date: string;
+    distance: {
+      kilometers: number;
+      lunar: number;
+    };
+    size: number;
+    isDangerous: boolean;
+    distanseMode:boolean;
+  };
+
+export const AsteroidCard =(props:AsteroidCardProps)=>{
+    const {name, date, distance, size, isDangerous,distanseMode} = props;
 
     return <div className={styles.container}>
     <div className={isDangerous ? styles.cardRed : styles.regvlarCard}>

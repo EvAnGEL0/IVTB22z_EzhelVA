@@ -8,7 +8,17 @@ import { useEffect, useState } from "react";
 export const Asteroids =()=>{
 
    
-    const [asteroids, setAsteroids] = useState(generateAsteroids())
+    const [asteroids, setAsteroids] = useState<{
+        name: string;
+        date: string;
+        distance: {
+            kilometers : number;
+            lunar: number;
+        },
+        size: number;
+        id: string;
+        isDangerous: boolean
+    }[]>([]);
     const [onlyDangerous, setOnlyDangerous] = useState(false)
     const [distanseMode, setDistanseMode] = useState(false)
     
@@ -51,7 +61,7 @@ export const Asteroids =()=>{
         <Header />
         <div className={styles.container}>
         <div onClick={() =>  setOnlyDangerous(!onlyDangerous)}>
-            <input type="checkbox" value={onlyDangerous} onChange={()=>setOnlyDangerous(!onlyDangerous)}></input> Показать только опасные
+            <input type="checkbox" value={onlyDangerous as unknown as string} onChange={()=>setOnlyDangerous(!onlyDangerous)}></input> Показать только опасные
         </div>
         <div>Растояние <button onClick={()=>setDistanseMode(true)}>в километрах</button>,
          <button onClick={()=>setDistanseMode(false)}>в дистанциях от луны</button></div>
