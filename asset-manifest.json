@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/IVTB22z_EzhelVA/static/css/main.e2e19d27.css",
+    "main.js": "/IVTB22z_EzhelVA/static/js/main.c2f16563.js",
+    "static/js/488.d3d7648e.chunk.js": "/IVTB22z_EzhelVA/static/js/488.d3d7648e.chunk.js",
+    "index.html": "/IVTB22z_EzhelVA/index.html",
+    "main.e2e19d27.css.map": "/IVTB22z_EzhelVA/static/css/main.e2e19d27.css.map",
+    "main.c2f16563.js.map": "/IVTB22z_EzhelVA/static/js/main.c2f16563.js.map",
+    "488.d3d7648e.chunk.js.map": "/IVTB22z_EzhelVA/static/js/488.d3d7648e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2e19d27.css",
+    "static/js/main.c2f16563.js"
+  ]
+}
