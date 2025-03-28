@@ -2,7 +2,7 @@
   "name": "armageddon-app",
   "version": "0.1.0",
   "private": true,
-  "homepage":"http://EvAnGEL0.github.io/IVTB22z_EzhelVA",
+  "homepage": "http://EvAnGEL0.github.io/IVTB22z_EzhelVA",
   "dependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.14",
@@ -20,8 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-   
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -b gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "gh-pages": "^6.3.0",
     "prettier": "3.5.3"
   }
 }
