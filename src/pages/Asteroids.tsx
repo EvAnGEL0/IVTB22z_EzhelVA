@@ -2,6 +2,7 @@
 import { Header } from "../components/header/Header"
 import { AsteroidCard } from "../components/AsteroidCard/AsteroidCard";
 import {AsteroidContext} from "../components/asteroids-context/AsteroidsContext";
+import { getUserKey } from '../components/utils/getUserKey';
 
 import styles from "./Asteroids.module.css"
 import {useContext, useEffect, useState} from "react";
@@ -27,8 +28,8 @@ export const Asteroids =()=>{
     //хук эффект
     useEffect( ()=>{
         try{
-                const result =  fetch("https://api.nasa.gov/neo/rest/v1/feed?api_key=tf9ULHclGmZjnwSCEBbTUJ5XV7G1GUAPzGG6PPQW").then((res)=>{
-                   return res.json()
+            const result =  fetch(`https://api.nasa.gov/neo/rest/v1/feed?api_key=${getUserKey()}`).then((res)=>{
+                return res.json()
                }).then((response)=>{
                   let rawAsteroids = []
                    for (const data in response.near_earth_objects) {     
