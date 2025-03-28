@@ -1,9 +1,9 @@
 export const getUserKey = () => {
     let userKey = "";
 
-    // if (process.env.NODE_ENV === 'development') {
-    //     return process.env.REACT_APP_API_KEY;
-    // }
+    if (process.env.NODE_ENV === 'development') {
+        return process.env.REACT_APP_API_KEY;
+    }
 
     try {
         userKey = localStorage.getItem('API_KEY');
