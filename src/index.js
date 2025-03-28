@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createHashRouter, RouterProvider} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import { Asteroids } from './pages/Asteroids';
 import { Asteroid } from './pages/Asteroid';
@@ -10,7 +10,7 @@ import {AsteroidsContextProvider} from "./components/asteroids-context/Asteroids
 
 
 //для router желательно выексти в отделный файл
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/test",
     element: <div>TEST!</div>,
